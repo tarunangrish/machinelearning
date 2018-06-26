@@ -29,7 +29,25 @@ lin_reg.fit(X, y, sample_weight=None)
 
 # Polynomial Regression
 from sklearn.preprocessing import PolynomialFeatures
-poly_reg = PolynomialFeatures(degree = 2)
+poly_reg = PolynomialFeatures(degree = 4)
 X_poly = poly_reg.fit_transform(X)
 lin_reg2 = LinearRegression()
 lin_reg2.fit(X_poly, y)
+
+# Linear Regression Visualisation
+plt.scatter(X,y, color = 'red')
+plt.plot(X, lin_reg.predict(X), color = 'blue')
+plt.title('Truth or Bluff(Linear Regression)')
+plt.xlabel('Position')
+plt.ylabel('Salary')
+plt.show()
+
+# Polynomial Regression Visualisation
+plt.scatter(X, y, color = 'red')
+plt.plot(X, lin_reg2.predict(poly_reg.fit_transform(X)), color = 'blue')
+plt.title('POlynomial Regression')
+plt.xlabel('Position')
+plt.ylabel('Salary')
+plt.show()
+
+lin_reg2.predict(poly_reg.fit_transform(6.5))
