@@ -23,7 +23,11 @@ sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train)"""
 
 # Fitting the Regression Model to the dataset
-# Create your regressor here
+# SVR Regression
+from sklearn.svm import SVR
+regressor = SVR(kernel = 'rbf')
+regressor.fit(X, y)
+
 
 # Predicting a new result
 y_pred = regressor.predict(6.5)
